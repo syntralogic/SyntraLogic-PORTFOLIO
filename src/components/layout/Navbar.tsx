@@ -6,6 +6,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
+import logo from "@/assets/New Logo.png";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -20,7 +22,7 @@ export function Navbar() {
         .map((link) => link.href.replace("#", ""))
         .filter(Boolean);
 
-      for (const id of sections.reverse()) {
+      for (const id of [...sections].reverse()) {
         const element = document.getElementById(id);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -60,8 +62,10 @@ export function Navbar() {
           className="flex items-center gap-2 text-xl md:text-2xl font-bold text-foreground"
           aria-label="SyntraLogic Home"
         >
-          <Code2 className="h-7 w-7 text-accent" />
-          <span className="gradient-text">SyntraLogic</span>
+          <div className="flex items-center gap-2">
+            <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
+            <span className="gradient-text">SyntraLogic</span>
+          </div>
         </a>
 
         <ul className="hidden lg:flex items-center gap-1" role="menubar">
@@ -122,7 +126,7 @@ export function Navbar() {
                   }}
                   className="flex items-center gap-2 text-2xl font-bold mb-8"
                 >
-                  <Code2 className="h-7 w-7 text-accent" />
+                  <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
                   <span className="gradient-text">SyntraLogic</span>
                 </a>
                 <ul className="flex flex-col gap-2" role="menu">
