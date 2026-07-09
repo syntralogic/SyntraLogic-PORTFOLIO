@@ -61,20 +61,25 @@ export interface Value {
 
 export const values: Value[] = [
   {
-    title: "Mission",
-    description:
-      "To engineer scalable, secure, and high-performance software solutions that empower businesses to grow and innovate in a digital world.",
-  },
-  {
-    title: "Vision",
-    description:
-      "To become a trusted global technology partner known for delivering world-class software products, APIs, and business systems.",
-  },
-  {
-    title: "Core Values",
-    description:
-      "Quality, transparency, continuous learning, client success, and long-term partnerships drive everything we build.",
-  },
+  title: "Mission",
+  description:
+    "To engineer scalable, secure, and high-performance software solutions that empower businesses to grow and innovate in a digital world.",
+},
+{
+  title: "Vision",
+  description:
+    "To become a trusted global technology partner known for delivering world-class software products, APIs, and business systems.",
+},
+{
+  title: "Core Values",
+  description:
+    "Quality, transparency, continuous learning, client success, and long-term partnerships drive everything we build.",
+},
+{
+  title: "Innovation",
+  description:
+    "We embrace emerging technologies and modern architectures to deliver future-proof solutions that keep our clients ahead of the curve.",
+},
 ];
 
 export interface Service {
