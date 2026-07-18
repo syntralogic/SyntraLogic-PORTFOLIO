@@ -38,22 +38,6 @@ export function AboutSection() {
               <p className="text-sm text-muted-foreground">Co-Founder &amp; CEO</p>
             </div>
           </div>
-
-          <div className="hidden md:block w-px h-10 bg-border" />
-
-          {/* CEO 2 */}
-          <div className="flex items-center gap-4 group cursor-default">
-            <div className="relative">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center text-xl font-bold text-foreground ring-2 ring-accent/20 group-hover:ring-accent/40 transition-all duration-300">
-                AA
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-background" />
-            </div>
-            <div className="text-left">
-              <h3 className="text-base font-semibold text-foreground">Arooj Ashfaq</h3>
-              <p className="text-sm text-muted-foreground">Co-Founder &amp; CEO</p>
-            </div>
-          </div>
         </div>
       </motion.div>
 
