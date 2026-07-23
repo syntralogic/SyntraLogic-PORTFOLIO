@@ -3,49 +3,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SyntraLogic dark design system. All colors are defined as HSL. */
+/* SyntraLogic dark design system - Gold & Charcoal Theme */
+/* All colors are defined as HSL. */
 
 @layer base {
   :root {
     --radius: 1rem;
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --card: 214 68% 14%;
-    --card-foreground: 210 40% 98%;
-    --popover: 214 68% 10%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 76% 13%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 214 68% 18%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 189 94% 43%;
-    --accent-foreground: 217 76% 13%;
+    
+    /* Background & Foreground */
+    --background: 0 0% 4%; /* #0B0B0B - Charcoal Black */
+    --foreground: 0 0% 100%; /* #FFFFFF - Pure White */
+    
+    /* Cards & Popovers */
+    --card: 0 0% 6%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 100%; /* #FFFFFF - Pure White */
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    
+    /* Primary - Gold */
+    --primary: 45 100% 50%; /* #D4AF37 - Gold */
+    --primary-foreground: 0 0% 4%; /* #0B0B0B - Charcoal Black */
+    
+    /* Secondary */
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted */
+    --muted: 0 0% 10%;
+    --muted-foreground: 220 14% 90%; /* #E2E8F0 - Light Silver */
+    
+    /* Accent - Gold */
+    --accent: 45 100% 50%; /* #D4AF37 - Gold */
+    --accent-foreground: 0 0% 4%; /* #0B0B0B - Charcoal Black */
+    
+    /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 212 54% 24%;
-    --input: 212 54% 24%;
-    --ring: 189 94% 43%;
-    --chart-1: 189 94% 43%;
-    --chart-2: 217 91% 60%;
-    --chart-3: 217 76% 13%;
-    --chart-4: 215 20% 65%;
-    --chart-5: 222 47% 6%;
-    --sidebar-background: 217 76% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 189 94% 43%;
-    --sidebar-primary-foreground: 217 76% 13%;
-    --sidebar-accent: 214 68% 18%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 212 54% 24%;
-    --sidebar-ring: 189 94% 43%;
-    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%), hsl(217 91% 60%));
-    --gradient-card: linear-gradient(145deg, hsl(214 68% 14% / 0.9), hsl(217 76% 13% / 0.45));
-    --gradient-background: radial-gradient(circle at 80% 0%, hsl(189 94% 43% / 0.08), transparent 40%),
-      radial-gradient(circle at 10% 60%, hsl(217 91% 60% / 0.06), transparent 35%);
-    --shadow-card: 0 4px 24px -4px hsl(217 76% 13% / 0.5);
-    --shadow-hover: 0 8px 40px -8px hsl(189 94% 43% / 0.25);
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 45 100% 50% / 0.15; /* Gold with 15% opacity */
+    --input: 45 100% 50% / 0.1; /* Gold with 10% opacity */
+    --ring: 45 100% 50%; /* Gold */
+    
+    /* Charts - Gold themed */
+    --chart-1: 45 100% 50%; /* Gold */
+    --chart-2: 45 80% 45%; /* Darker Gold */
+    --chart-3: 45 100% 55%; /* Lighter Gold */
+    --chart-4: 220 14% 90%; /* Light Silver */
+    --chart-5: 0 0% 4%; /* Charcoal Black */
+    
+    /* Sidebar - Gold themed */
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 45 100% 50%; /* Gold */
+    --sidebar-primary-foreground: 0 0% 4%; /* Charcoal Black */
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 45 100% 50% / 0.1;
+    --sidebar-ring: 45 100% 50%; /* Gold */
+    
+    /* Gradients - Gold themed */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 50%), hsl(45 80% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 6% / 0.9), hsl(0 0% 4% / 0.45));
+    --gradient-background: radial-gradient(circle at 80% 0%, hsl(45 100% 50% / 0.08), transparent 40%),
+      radial-gradient(circle at 10% 60%, hsl(45 80% 45% / 0.06), transparent 35%);
+    
+    /* Shadows - Gold themed */
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 8px 40px -8px hsl(45 100% 50% / 0.25);
   }
 }
 
@@ -64,13 +89,32 @@
   }
 
   ::selection {
-    background-color: hsl(189 94% 43% / 0.3);
-    color: hsl(210 40% 98%);
+    background-color: hsl(45 100% 50% / 0.3);
+    color: hsl(0 0% 100%);
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-color: hsl(45 100% 50% / 0.3) transparent;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(0 0% 4%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(45 100% 50% / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(45 100% 50% / 0.5);
   }
 }
 
@@ -92,5 +136,59 @@
 
   .text-pretty {
     text-wrap: pretty;
+  }
+
+  /* Gold glow utilities */
+  .shadow-gold {
+    box-shadow: 0 0 30px hsl(45 100% 50% / 0.1);
+  }
+
+  .shadow-gold-hover:hover {
+    box-shadow: 0 0 50px hsl(45 100% 50% / 0.2);
+  }
+
+  .border-gold {
+    border-color: hsl(45 100% 50% / 0.2);
+  }
+
+  .border-gold-hover:hover {
+    border-color: hsl(45 100% 50% / 0.4);
+  }
+
+  .bg-gold-light {
+    background-color: hsl(45 100% 50% / 0.05);
+  }
+
+  .bg-gold-medium {
+    background-color: hsl(45 100% 50% / 0.1);
+  }
+
+  .bg-gold-hover:hover {
+    background-color: hsl(45 100% 50% / 0.1);
+  }
+
+  /* Gold gradient background */
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 100% 50%), hsl(45 80% 45%));
+  }
+
+  /* Text utilities */
+  .text-gold {
+    color: hsl(45 100% 50%);
+  }
+
+  .text-silver {
+    color: hsl(220 14% 90%);
+  }
+
+  .text-charcoal {
+    color: hsl(0 0% 4%);
+  }
+
+  /* Gold ring focus */
+  .focus-ring-gold:focus {
+    outline: none;
+    ring: 2px solid hsl(45 100% 50%);
+    ring-offset: 2px;
   }
 }

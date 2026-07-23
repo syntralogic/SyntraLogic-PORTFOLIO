@@ -3,8 +3,6 @@ import { motion } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Send } from "lucide-react";
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -68,193 +66,307 @@ export function ClientsSection() {
   }
 
   return (
-    <SectionWrapper id="clients" background="gradient">
-      <SectionHeading
-        eyebrow="For Clients"
-        title="Start Your Project With SyntraLogic"
-        description="Tell us about your project. We will review your requirements and prepare a tailored proposal."
+    <section 
+      id="clients" 
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ backgroundColor: "#0B0B0B" }}
+    >
+      {/* Gold grid overlay */}
+      <div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+        }}
+        aria-hidden="true"
       />
 
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-3xl mx-auto p-6 md:p-10 rounded-3xl bg-card/60 border border-border backdrop-blur-sm"
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="companyName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Company Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Acme Inc." {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+      {/* Gold glow accents */}
+      <div 
+        className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none opacity-10"
+        style={{
+          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute bottom-0 left-0 w-1/2 h-1/2 pointer-events-none opacity-10"
+        style={{
+          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.08) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="yourcompany@email.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input type="tel" placeholder="+92 300 1234567" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <FormField
-                control={form.control}
-                name="projectType"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Project Type</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select type" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {projectTypes.map((type) => (
-                          <SelectItem key={type} value={type}>
-                            {type}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="budget"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Estimated Budget</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select budget" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {budgetRanges.map((range) => (
-                          <SelectItem key={range} value={range}>
-                            {range}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="timeline"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Timeline</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select timeline" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {timelines.map((timeline) => (
-                          <SelectItem key={timeline} value={timeline}>
-                            {timeline}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Project Description</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Describe your goals, features, and any specific requirements..."
-                      rows={5}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full md:w-auto bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity"
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Custom Section Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <span 
+              className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
+              style={{ color: "#D4AF37" }}
             >
-              {loading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="mr-2 h-4 w-4" />
-                  Submit Inquiry
-                </>
-              )}
-            </Button>
-          </form>
-        </Form>
-      </motion.div>
-    </SectionWrapper>
+              For Clients
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
+            style={{ color: "#FFFFFF" }}
+          >
+            Start Your Project With SyntraLogic
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="text-base md:text-lg max-w-2xl mx-auto"
+            style={{ color: "#E2E8F0" }}
+          >
+            Tell us about your project. We will review your requirements and prepare a tailored proposal.
+          </motion.p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-3xl mx-auto p-6 md:p-10 rounded-3xl border backdrop-blur-sm transition-all duration-300"
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.02)",
+            borderColor: "rgba(212, 175, 55, 0.08)",
+          }}
+        >
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="fullName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Full Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Your Name" 
+                          {...field} 
+                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="companyName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Company Name</FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Acme Inc." 
+                          {...field} 
+                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Email</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="email" 
+                          placeholder="yourcompany@email.com" 
+                          {...field} 
+                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="tel" 
+                          placeholder="+92 300 1234567" 
+                          {...field} 
+                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <FormField
+                  control={form.control}
+                  name="projectType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Project Type</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                            <SelectValue placeholder="Select type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                          {projectTypes.map((type) => (
+                            <SelectItem 
+                              key={type} 
+                              value={type}
+                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                            >
+                              {type}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="budget"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Estimated Budget</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                            <SelectValue placeholder="Select budget" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                          {budgetRanges.map((range) => (
+                            <SelectItem 
+                              key={range} 
+                              value={range}
+                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                            >
+                              {range}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="timeline"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel style={{ color: "#E2E8F0" }}>Timeline</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                            <SelectValue placeholder="Select timeline" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                          {timelines.map((timeline) => (
+                            <SelectItem 
+                              key={timeline} 
+                              value={timeline}
+                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                            >
+                              {timeline}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel style={{ color: "#E2E8F0" }}>Project Description</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Describe your goals, features, and any specific requirements..."
+                        rows={5}
+                        {...field}
+                        className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 resize-none"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                style={{
+                  backgroundColor: "#D4AF37",
+                  color: "#0B0B0B",
+                  fontWeight: 600,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#C5A030";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#D4AF37";
+                }}
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 h-4 w-4" />
+                    Submit Inquiry
+                  </>
+                )}
+              </Button>
+            </form>
+          </Form>
+        </motion.div>
+      </div>
+    </section>
   );
 }

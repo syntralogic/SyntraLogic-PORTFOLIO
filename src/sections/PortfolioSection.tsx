@@ -1,101 +1,218 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { projects } from "@/lib/data";
 
 export function PortfolioSection() {
   return (
-    <SectionWrapper id="portfolio" background="muted">
-      <SectionHeading
-        eyebrow="Our Work"
-        title="Projects That Define Quality"
-        description="A selection of realistic solutions we have engineered across industries and platforms."
+    <section 
+      id="portfolio" 
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ backgroundColor: "#0B0B0B" }}
+    >
+      {/* Gold grid overlay */}
+      <div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+        }}
+        aria-hidden="true"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
+      {/* Gold glow accent */}
+      <div 
+        className="absolute bottom-0 right-0 w-1/2 h-1/2 pointer-events-none opacity-10"
+        style={{
+          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Custom Section Heading */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-            whileHover={{ y: -6 }}
-            className="group flex flex-col rounded-2xl overflow-hidden bg-card border border-border hover:border-accent/30 transition-all hover:shadow-hover"
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div className="relative aspect-video overflow-hidden bg-muted">
-              <img
-                src={project.image}
-                alt={`${project.name} project preview`}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
-              <Badge className="absolute top-4 left-4 bg-accent/90 text-primary-foreground hover:bg-accent">
-                {project.category}
-              </Badge>
-            </div>
-
-            <div className="flex flex-col flex-1 p-6">
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                {project.name}
-              </h3>
-              <p className="text-sm text-muted-foreground text-pretty mb-4 flex-1">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-1 text-xs font-medium rounded-md bg-muted text-accent"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3 mt-auto">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="flex-1 border-border hover:border-accent hover:text-accent"
-                  asChild
-                >
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View live demo of ${project.name}`}
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="flex-1 border-border hover:border-accent hover:text-accent"
-                  asChild
-                >
-                  <a
-                    href={project.repoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View source code of ${project.name}`}
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    GitHub
-                  </a>
-                </Button>
-              </div>
-            </div>
+            <span 
+              className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
+              style={{ color: "#D4AF37" }}
+            >
+              Our Work
+            </span>
           </motion.div>
-        ))}
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
+            style={{ color: "#FFFFFF" }}
+          >
+            Projects That Define Quality
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+            className="text-base md:text-lg max-w-2xl mx-auto"
+            style={{ color: "#E2E8F0" }}
+          >
+            A selection of realistic solutions we have engineered across industries and platforms.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6 }}
+              className="group flex flex-col rounded-2xl overflow-hidden border transition-all duration-300"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.02)",
+                borderColor: "rgba(212, 175, 55, 0.08)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.3)";
+                e.currentTarget.style.boxShadow = "0 8px 40px rgba(212, 175, 55, 0.06)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.08)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <div className="relative aspect-video overflow-hidden" style={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
+                <img
+                  src={project.image}
+                  alt={`${project.name} project preview`}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to top, rgba(11, 11, 11, 0.9) 0%, transparent 50%, transparent 100%)",
+                  }}
+                />
+                <Badge 
+                  className="absolute top-4 left-4"
+                  style={{
+                    backgroundColor: "#D4AF37",
+                    color: "#0B0B0B",
+                    fontWeight: 600,
+                  }}
+                >
+                  {project.category}
+                </Badge>
+              </div>
+
+              <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-bold mb-2" style={{ color: "#FFFFFF" }}>
+                  {project.name}
+                </h3>
+                <p className="text-sm text-pretty mb-4 flex-1" style={{ color: "#E2E8F0" }}>
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-xs font-medium rounded-md"
+                      style={{
+                        backgroundColor: "rgba(212, 175, 55, 0.08)",
+                        color: "#D4AF37",
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-3 mt-auto">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 transition-all duration-300"
+                    style={{
+                      borderColor: "rgba(212, 175, 55, 0.15)",
+                      color: "#E2E8F0",
+                      backgroundColor: "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#D4AF37";
+                      e.currentTarget.style.color = "#D4AF37";
+                      e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.15)";
+                      e.currentTarget.style.color = "#E2E8F0";
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                    asChild
+                  >
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View live demo of ${project.name}`}
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 transition-all duration-300"
+                    style={{
+                      borderColor: "rgba(212, 175, 55, 0.15)",
+                      color: "#E2E8F0",
+                      backgroundColor: "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#D4AF37";
+                      e.currentTarget.style.color = "#D4AF37";
+                      e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.15)";
+                      e.currentTarget.style.color = "#E2E8F0";
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                    asChild
+                  >
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code of ${project.name}`}
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      GitHub
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

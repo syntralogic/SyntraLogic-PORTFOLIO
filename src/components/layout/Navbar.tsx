@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
-import logo from "@/assets/New Logo.png";
+import logo from "@/assets/LOGO.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,8 +49,13 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/90 backdrop-blur-lg border-b border-border shadow-card" : "bg-transparent"
+        scrolled 
+          ? "bg-[#0B0B0B]/90 backdrop-blur-lg border-b border-[#D4AF37]/20 shadow-lg" 
+          : "bg-transparent"
       }`}
+      style={{
+        boxShadow: scrolled ? "0 4px 30px rgba(212, 175, 55, 0.05)" : "none",
+      }}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Main navigation">
         <a
@@ -59,12 +64,12 @@ export function Navbar() {
             e.preventDefault();
             handleNavClick("#home");
           }}
-          className="flex items-center gap-2 text-xl md:text-2xl font-bold text-foreground"
+          className="flex items-center gap-2 text-xl md:text-2xl font-bold"
           aria-label="SyntraLogic Home"
         >
           <div className="flex items-center gap-2">
             <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
-            <span className="gradient-text">SyntraLogic</span>
+            <span style={{ color: "#FFFFFF" }}>SyntraLogic</span>
           </div>
         </a>
 
@@ -80,15 +85,18 @@ export function Navbar() {
                     handleNavClick(link.href);
                   }}
                   role="menuitem"
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                    isActive ? "text-accent" : "text-muted-foreground"
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                    isActive 
+                      ? "text-[#D4AF37]" 
+                      : "text-[#E2E8F0] hover:text-[#D4AF37]"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-accent rounded-full"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
+                      style={{ backgroundColor: "#D4AF37" }}
                     />
                   )}
                 </a>
@@ -100,7 +108,18 @@ export function Navbar() {
         <div className="hidden lg:block">
           <Button
             onClick={() => handleNavClick("#contact")}
-            className="bg-gradient-primary text-primary-foreground hover:opacity-90 transition-opacity"
+            className="transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+            style={{
+              backgroundColor: "#D4AF37",
+              color: "#0B0B0B",
+              fontWeight: 600,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#C5A030";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#D4AF37";
+            }}
           >
             Contact Us
           </Button>
@@ -109,13 +128,23 @@ export function Navbar() {
         <div className="lg:hidden">
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open navigation menu">
-                <Menu className="h-6 w-6 text-foreground" />
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                aria-label="Open navigation menu"
+                style={{ color: "#FFFFFF" }}
+                className="hover:bg-[#D4AF37]/10"
+              >
+                <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full max-w-[calc(100%-2rem)] md:max-w-sm bg-background border-border"
+              className="w-full max-w-[calc(100%-2rem)] md:max-w-sm"
+              style={{
+                backgroundColor: "#0B0B0B",
+                borderColor: "rgba(212, 175, 55, 0.2)",
+              }}
             >
               <div className="flex flex-col h-full pt-8">
                 <a
@@ -125,35 +154,50 @@ export function Navbar() {
                     handleNavClick("#home");
                   }}
                   className="flex items-center gap-2 text-2xl font-bold mb-8"
+                  style={{ color: "#FFFFFF" }}
                 >
                   <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
-                  <span className="gradient-text">SyntraLogic</span>
+                  SyntraLogic
                 </a>
                 <ul className="flex flex-col gap-2" role="menu">
-                  {navLinks.map((link) => (
-                    <li key={link.href} role="none">
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleNavClick(link.href);
-                        }}
-                        role="menuitem"
-                        className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors hover:bg-muted ${
-                          activeSection === link.href.replace("#", "")
-                            ? "text-accent bg-muted"
-                            : "text-foreground"
-                        }`}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
+                  {navLinks.map((link) => {
+                    const isActive = activeSection === link.href.replace("#", "");
+                    return (
+                      <li key={link.href} role="none">
+                        <a
+                          href={link.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavClick(link.href);
+                          }}
+                          role="menuitem"
+                          className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                            isActive
+                              ? "text-[#D4AF37] bg-[#D4AF37]/10"
+                              : "text-[#E2E8F0] hover:bg-[#D4AF37]/5 hover:text-[#D4AF37]"
+                          }`}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <div className="mt-auto pb-8">
                   <Button
                     onClick={() => handleNavClick("#contact")}
-                    className="w-full bg-gradient-primary text-primary-foreground"
+                    className="w-full transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                    style={{
+                      backgroundColor: "#D4AF37",
+                      color: "#0B0B0B",
+                      fontWeight: 600,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#C5A030";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#D4AF37";
+                    }}
                   >
                     Contact Us
                   </Button>
