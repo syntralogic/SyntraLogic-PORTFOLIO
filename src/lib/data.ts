@@ -444,7 +444,8 @@ export const companyInfo = {
   name: "SyntraLogic",
   email: import.meta.env.VITE_COMPANY_EMAIL || "logicsyntra@gmail.com",
   whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || "+92 370 8898722",
-  github: import.meta.env.VITE_LINKEDIN_URL || "https://github.com/syntralogic",
+  github: import.meta.env.VITE_GITHUB_URL || "https://github.com/syntralogic",
+  linkedin: import.meta.env.VITE_LINKEDIN_URL || "https://www.linkedin.com/in/syntra-logic-030696423/",
   phoneLabel: "+92 370 8898722",
   address: "Remote-first, serving clients worldwide",
 };

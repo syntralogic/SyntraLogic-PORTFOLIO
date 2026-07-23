@@ -9,6 +9,7 @@ import {
   Send,
   MapPin,
   Github,
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -73,6 +74,12 @@ export function ContactSection() {
       label: "WhatsApp",
       value: companyInfo.phoneLabel,
       href: `https://wa.me/${companyInfo.whatsapp.replace(/\D/g, "")}`,
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "SyntraLogic",
+      href: companyInfo.linkedin,
     },
     {
       icon: Github,

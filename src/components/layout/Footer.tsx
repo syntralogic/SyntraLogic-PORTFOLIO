@@ -2,6 +2,9 @@ import { Code2, Mail, Phone, Linkedin, Github, Twitter } from "lucide-react";
 import { companyInfo, navLinks, services } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
+import logo from "@/assets/LOGO.png";
+
+
 export function Footer() {
   const scrollTo = useScrollTo();
 
@@ -57,7 +60,7 @@ export function Footer() {
               className="flex items-center gap-2 text-2xl font-bold mb-4"
               aria-label="SyntraLogic Home"
             >
-              <Code2 className="h-7 w-7" style={{ color: "#D4AF37" }} />
+            <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
               <span style={{ color: "#FFFFFF" }}>SyntraLogic</span>
             </a>
             <p className="text-sm text-pretty mb-6" style={{ color: "#E2E8F0" }}>
@@ -65,7 +68,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href={companyInfo.github}
+                href={companyInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full transition-all duration-300"
@@ -132,7 +135,9 @@ export function Footer() {
                 <Phone className="h-4 w-4" />
               </a>
               <a
-                href="#"
+                href={companyInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-full transition-all duration-300"
                 style={{
                   backgroundColor: "rgba(212, 175, 55, 0.08)",
@@ -151,27 +156,6 @@ export function Footer() {
                 aria-label="GitHub"
               >
                 <Github className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor: "rgba(212, 175, 55, 0.08)",
-                  color: "#E2E8F0",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
-                  e.currentTarget.style.color = "#0B0B0B";
-                  e.currentTarget.style.transform = "scale(1.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
-                  e.currentTarget.style.color = "#E2E8F0";
-                  e.currentTarget.style.transform = "scale(1)";
-                }}
-                aria-label="Twitter"
-              >
-                <Twitter className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -271,6 +255,24 @@ export function Footer() {
                   }}
                 >
                   {companyInfo.phoneLabel}
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Linkedin className="h-4 w-4 mt-0.5" style={{ color: "#D4AF37" }} />
+                <a
+                  href={companyInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors duration-300"
+                  style={{ color: "#E2E8F0" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "#D4AF37";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "#E2E8F0";
+                  }}
+                >
+                  SyntraLogic
                 </a>
               </li>
               <li className="flex items-start gap-3">
