@@ -22,6 +22,8 @@ import {
 import synergy from "../assets/synergy.jpeg";
 import shopire from "../assets/shopire.jpeg";
 import pawdeal from "../assets/pawdeal.jpeg";
+import kinetic from "../assets/kinetic.jpg";
+import digitalleads from "../assets/digitalleads.jpg";
 
 export interface NavLink {
   label: string;
@@ -265,6 +267,28 @@ export interface PortfolioProject {
 }
 
 export const projects: PortfolioProject[] = [
+  {
+    id: "kineticOS",
+    name: "Kinetic OS",
+    category: "SaaS",
+    description:
+      "AI-powered platform for lead management, automation, and multi-channel customer engagement.",
+    image: kinetic,
+    stack: ["React", "Typescript","node.js", "JavaScript", "PostgreSQL","Render"],
+    liveUrl: "https://kinetic-os-frontend.vercel.app/",
+    repoUrl: "https://github.com/syntralogic/",
+  },
+    {
+    id: "digitalleads",
+    name: "DigitalLeads",
+    category: "SaaS",
+    description:
+      "Affiliate marketing and lead-tracking platform for managing offers, clicks, conversions, and campaign analytics.",
+    image: digitalleads,
+    stack: ["React", "Typescript","node.js", "JavaScript", "PostgreSQL","Render"],
+    liveUrl: "https://digitalleads.vercel.app/",
+    repoUrl: "https://github.com/syntralogic/",
+  },
   {
     id: "shopire",
     name: "Shopire",
