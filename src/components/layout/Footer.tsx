@@ -1,5 +1,5 @@
 import { Code2, Mail, Phone, Linkedin, Github, Twitter } from "lucide-react";
-import { companyInfo, navLinks, services } from "@/lib/data";
+import { companyInfo, navLinks, footerExtraLinks, services } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 import logo from "@/assets/LOGO.png";
@@ -8,7 +8,7 @@ import logo from "@/assets/LOGO.png";
 export function Footer() {
   const scrollTo = useScrollTo();
 
-  const quickLinks = navLinks.map((link) => ({
+  const quickLinks = [...navLinks, ...footerExtraLinks].map((link) => ({
     label: link.label,
     href: link.href,
   }));

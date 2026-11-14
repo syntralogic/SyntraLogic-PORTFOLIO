@@ -107,7 +107,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <Button
-            onClick={() => handleNavClick("#contact")}
+            onClick={() => handleNavClick("#clients")}
             className="transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
             style={{
               backgroundColor: "#D4AF37",
@@ -121,7 +121,7 @@ export function Navbar() {
               e.currentTarget.style.backgroundColor = "#D4AF37";
             }}
           >
-            Contact Us
+            Start a Project
           </Button>
         </div>
 
@@ -185,7 +185,7 @@ export function Navbar() {
                 </ul>
                 <div className="mt-auto pb-8">
                   <Button
-                    onClick={() => handleNavClick("#contact")}
+                    onClick={() => handleNavClick("#clients")}
                     className="w-full transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
                     style={{
                       backgroundColor: "#D4AF37",
@@ -199,7 +199,7 @@ export function Navbar() {
                       e.currentTarget.style.backgroundColor = "#D4AF37";
                     }}
                   >
-                    Contact Us
+                    Start a Project
                   </Button>
                 </div>
               </div>

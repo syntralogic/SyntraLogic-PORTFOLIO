@@ -21,11 +21,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import synergy from "../assets/synergy.jpeg";
-import shopire from "../assets/shopire.jpeg";
-import pawdeal from "../assets/pawdeal.jpeg";
-import kinetic from "../assets/kinetic.jpg";
-import digitalleads from "../assets/digitalleads.jpg";
+import synergy from "../assets/synergy.webp";
+import shopire from "../assets/shopire.webp";
+import pawdeal from "../assets/pawdeal.webp";
+import kinetic from "../assets/kinetic.webp";
+import digitalleads from "../assets/digitalleads.webp";
 
 export interface NavLink {
   label: string;
@@ -37,12 +37,16 @@ export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Services", href: "#services" },
-  { label: "Why Choose Us", href: "#why-us" },
   { label: "Technologies", href: "#technologies" },
-  { label: "Clients", href: "#clients" },
-  { label: "Client Hunters", href: "#client-hunters" },
   { label: "FAQs", href: "#faqs" },
   { label: "Contact", href: "#contact" },
+];
+
+// Extra links shown only in the footer (kept out of the main navbar to avoid clutter).
+export const footerExtraLinks: NavLink[] = [
+  { label: "Why Choose Us", href: "#why-us" },
+  { label: "Hire Us", href: "#clients" },
+  { label: "Client Hunters", href: "#client-hunters" },
 ];
 
 export interface Stat {

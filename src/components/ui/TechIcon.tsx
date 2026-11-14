@@ -1,5 +1,4 @@
-import { Code } from "lucide-react";
-import * as Icons from "simple-icons";
+import { techIconData } from "./techIconData";
 
 interface TechIconProps {
   name: string;
@@ -80,17 +79,9 @@ const iconMap: Record<string, string> = {
   "GitHub Desktop": "github",
 };
 
-const iconsBySlug = new Map<string, { path: string; hex: string; title: string }>();
-for (const key of Object.keys(Icons)) {
-  const icon = Icons[key as keyof typeof Icons];
-  if (icon && typeof icon === "object" && "slug" in icon) {
-    iconsBySlug.set(icon.slug, icon as { path: string; hex: string; title: string });
-  }
-}
-
 export function TechIcon({ name, size = 28, className = "" }: TechIconProps) {
   const slug = iconMap[name];
-  const icon = slug ? iconsBySlug.get(slug) : null;
+  const icon = slug ? techIconData[slug] : null;
   const initial = name.charAt(0).toUpperCase();
 
   if (!icon) {
