@@ -26,6 +26,7 @@ import shopire from "../assets/shopire.webp";
 import pawdeal from "../assets/pawdeal.webp";
 import kinetic from "../assets/kinetic.webp";
 import digitalleads from "../assets/digitalleads.webp";
+import marchesdirect from "../assets/marchesdirect.webp";
 
 export interface NavLink {
   label: string;
@@ -344,6 +345,7 @@ export const projects: PortfolioProject[] = [
     category: "Procurement",
     description:
       "Search platform for French public tenders and subcontracting opportunities, with trade-based matching and region, department and city filters.",
+    image: marchesdirect,
     stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL"],
     liveUrl: "https://marchesdirect.fr",
     repoUrl: "https://github.com/syntralogic",
