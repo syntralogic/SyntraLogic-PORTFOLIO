@@ -30,6 +30,7 @@ import digitalleads from "../assets/digitalleads.webp";
 export interface NavLink {
   label: string;
   href: string;
+  children?: NavLink[];
 }
 
 export const navLinks: NavLink[] = [
@@ -38,6 +39,14 @@ export const navLinks: NavLink[] = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Services", href: "#services" },
   { label: "Technologies", href: "#technologies" },
+  {
+    label: "Work With Us",
+    href: "#clients",
+    children: [
+      { label: "Hire Us (Clients)", href: "#clients" },
+      { label: "Client Hunters", href: "#client-hunters" },
+    ],
+  },
   { label: "FAQs", href: "#faqs" },
   { label: "Contact", href: "#contact" },
 ];
@@ -45,7 +54,6 @@ export const navLinks: NavLink[] = [
 // Extra links shown only in the footer (kept out of the main navbar to avoid clutter).
 export const footerExtraLinks: NavLink[] = [
   { label: "Why Choose Us", href: "#why-us" },
-  { label: "Hire Us", href: "#clients" },
   { label: "Client Hunters", href: "#client-hunters" },
 ];
 
@@ -360,6 +368,49 @@ export const upcomingProjects: UpcomingProject[] = [
     icon: Repeat,
     stack: ["Android", "Node.js", "REST API"],
     status: "Coming Soon",
+  },
+];
+
+// DEMO CONTENT: these are placeholder testimonials from fictional people.
+// Replace them with real client quotes (and set SHOW_DEMO_NOTICE to false) before going live.
+export const SHOW_DEMO_NOTICE = true;
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+  project: string;
+  rating: number;
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "t1",
+    quote:
+      "The team understood our lead-management workflow right away and delivered a clean, fast platform. Updates were clear and deadlines were met.",
+    name: "Daniel Carter",
+    role: "Operations Lead",
+    project: "Kinetic OS",
+    rating: 5,
+  },
+  {
+    id: "t2",
+    quote:
+      "Our online store went from idea to launch in a few weeks. Payments and inventory just work, and support after launch has been great.",
+    name: "Ayesha Malik",
+    role: "Founder",
+    project: "Shopire",
+    rating: 5,
+  },
+  {
+    id: "t3",
+    quote:
+      "Professional communication and tidy code. The dashboards gave us the analytics we needed without any extra complexity.",
+    name: "Omar Siddiqui",
+    role: "Marketing Manager",
+    project: "DigitalLeads",
+    rating: 5,
   },
 ];
 

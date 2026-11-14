@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Code2 } from "lucide-react";
+import { motion } from "motion/react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { navLinks } from "@/lib/data";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { navLinks, type NavLink } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
 
 import logo from "@/assets/LOGO.png";
@@ -19,6 +25,7 @@ export function Navbar() {
       setScrolled(window.scrollY > 20);
 
       const sections = navLinks
+        .flatMap((link) => (link.children ? link.children : [link]))
         .map((link) => link.href.replace("#", ""))
         .filter(Boolean);
 
@@ -37,6 +44,11 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isLinkActive = (link: NavLink) =>
+    [link, ...(link.children ?? [])].some(
+      (l) => activeSection === l.href.replace("#", ""),
+    );
 
   const handleNavClick = (href: string) => {
     scrollTo(href);
@@ -75,7 +87,52 @@ export function Navbar() {
 
         <ul className="hidden lg:flex items-center gap-1" role="menubar">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.replace("#", "");
+            const isActive = isLinkActive(link);
+            if (link.children) {
+              return (
+                <li key={link.label} role="none">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        type="button"
+                        className={`relative inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                          isActive
+                            ? "text-[#D4AF37]"
+                            : "text-[#E2E8F0] hover:text-[#D4AF37]"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown className="h-4 w-4" />
+                        {isActive && (
+                          <motion.span
+                            layoutId="nav-underline"
+                            className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
+                            style={{ backgroundColor: "#D4AF37" }}
+                          />
+                        )}
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      style={{
+                        backgroundColor: "#0B0B0B",
+                        borderColor: "rgba(212, 175, 55, 0.3)",
+                      }}
+                    >
+                      {link.children.map((child) => (
+                        <DropdownMenuItem
+                          key={child.href}
+                          onSelect={() => handleNavClick(child.href)}
+                          className="cursor-pointer text-[#E2E8F0] focus:bg-[#D4AF37]/10 focus:text-[#D4AF37]"
+                        >
+                          {child.label}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </li>
+              );
+            }
             return (
               <li key={link.href} role="none">
                 <a
@@ -160,7 +217,7 @@ export function Navbar() {
                   SyntraLogic
                 </a>
                 <ul className="flex flex-col gap-2" role="menu">
-                  {navLinks.map((link) => {
+                  {navLinks.flatMap((link) => (link.children ? link.children : [link])).map((link) => {
                     const isActive = activeSection === link.href.replace("#", "");
                     return (
                       <li key={link.href} role="none">

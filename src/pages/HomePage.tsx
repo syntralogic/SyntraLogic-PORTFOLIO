@@ -17,6 +17,9 @@ const WhyChooseUsSection = lazy(() =>
 const TechnologiesSection = lazy(() =>
   import("@/sections/TechnologiesSection").then((m) => ({ default: m.TechnologiesSection })),
 );
+const TestimonialsSection = lazy(() =>
+  import("@/sections/TestimonialsSection").then((m) => ({ default: m.TestimonialsSection })),
+);
 const ClientsSection = lazy(() =>
   import("@/sections/ClientsSection").then((m) => ({ default: m.ClientsSection })),
 );
@@ -46,6 +49,7 @@ export default function HomePage() {
           <ServicesSection />
           <WhyChooseUsSection />
           <TechnologiesSection />
+          <TestimonialsSection />
           <ClientsSection />
           <ClientHuntersSection />
           <FAQsSection />
