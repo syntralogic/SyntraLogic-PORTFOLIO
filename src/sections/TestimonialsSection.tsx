@@ -46,18 +46,6 @@ export function TestimonialsSection() {
             style={{ color: "#FFFFFF" }}
           >
             What Our Clients Say
-          </motion.h2>
-          {SHOW_DEMO_NOTICE && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-block text-xs font-medium px-3 py-1 rounded-full border"
-              style={{ color: "#D4AF37", borderColor: "rgba(212, 175, 55, 0.3)" }}
-            >
-              Sample content for demo purposes
-            </motion.p>
           )}
         </div>
 
