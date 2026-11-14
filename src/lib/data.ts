@@ -16,6 +16,8 @@ import {
   Link,
   Lock,
   Settings,
+  Scissors,
+  Repeat,
   type LucideIcon,
 } from "lucide-react";
 
@@ -33,9 +35,9 @@ export interface NavLink {
 export const navLinks: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Services", href: "#services" },
   { label: "Why Choose Us", href: "#why-us" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Technologies", href: "#technologies" },
   { label: "Clients", href: "#clients" },
   { label: "Client Hunters", href: "#client-hunters" },
@@ -274,7 +276,7 @@ export const projects: PortfolioProject[] = [
     description:
       "AI-powered platform for lead management, automation, and multi-channel customer engagement.",
     image: kinetic,
-    stack: ["React", "Typescript","node.js", "JavaScript", "PostgreSQL","Render"],
+    stack: ["React", "Typescript","Node.js", "JavaScript", "PostgreSQL","Render"],
     liveUrl: "https://kinetic-os-frontend.vercel.app/",
     repoUrl: "https://github.com/syntralogic/",
   },
@@ -285,7 +287,7 @@ export const projects: PortfolioProject[] = [
     description:
       "Affiliate marketing and lead-tracking platform for managing offers, clicks, conversions, and campaign analytics.",
     image: digitalleads,
-    stack: ["React", "Typescript","node.js", "JavaScript", "PostgreSQL","Render"],
+    stack: ["React", "Typescript","Node.js", "JavaScript", "PostgreSQL","Render"],
     liveUrl: "https://digitalleads.vercel.app/",
     repoUrl: "https://github.com/syntralogic/",
   },
@@ -296,7 +298,7 @@ export const projects: PortfolioProject[] = [
     description:
       "Cloud-based e-commerce platform with customer dealing and payment records.",
     image: shopire,
-    stack: ["HTML", "CSS","node.js", "JavaScript", "MongoDB","Render"],
+    stack: ["HTML", "CSS","Node.js", "JavaScript", "MongoDB","Render"],
     liveUrl: "https://shopire-frontend.vercel.app/",
     repoUrl: "https://github.com/syntralogic/shopire-backend",
   },
@@ -307,7 +309,7 @@ export const projects: PortfolioProject[] = [
     description:
       "A scalable public relationship management system built for communication with real-time analytics.",
     image: synergy,
-    stack: ["React.js", "node.js", "JavaScript", "PostgreSQL","TypreScript"],
+    stack: ["React.js", "Node.js", "JavaScript", "PostgreSQL","TypeScript"],
     liveUrl: "https://synergy-social-frontend.vercel.app/",
     repoUrl: "https://github.com/syntralogic/Social-Web-Backend",
   },
@@ -318,9 +320,42 @@ export const projects: PortfolioProject[] = [
     description:
       "Multi-user pet retail platform with secure payments, inventory, and dashboards.",
     image: pawdeal,
-    stack: ["React.js", "node.js", "JavaScript", "MySQL","TypreScript"],
+    stack: ["React.js", "Node.js", "JavaScript", "MySQL","TypeScript"],
     liveUrl: "https://pawdeal-frontend.vercel.app",
     repoUrl: "https://github.com/syntralogic/PawDeal-Backend",
+  },
+];
+
+export interface UpcomingProject {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  icon: LucideIcon;
+  stack: string[];
+  status: string;
+}
+
+export const upcomingProjects: UpcomingProject[] = [
+  {
+    id: "tailorhub",
+    name: "TailorHub",
+    category: "Marketplace",
+    description:
+      "Tailoring marketplace connecting buyers and sellers, with separate buyer, seller and admin dashboards, secure authentication and an AI chatbot.",
+    icon: Scissors,
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    status: "In Development",
+  },
+  {
+    id: "skillswap",
+    name: "SkillSwap",
+    category: "Mobile App",
+    description:
+      "Peer-to-peer skill exchange app where people can offer what they know and learn something new in return.",
+    icon: Repeat,
+    stack: ["Android", "Node.js", "REST API"],
+    status: "Coming Soon",
   },
 ];
 

@@ -1,10 +1,13 @@
 import { motion } from "motion/react";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { projects } from "@/lib/data";
+import { projects, upcomingProjects } from "@/lib/data";
+import { useScrollTo } from "@/hooks/useScrollTo";
 
 export function PortfolioSection() {
+  const scrollTo = useScrollTo();
+
   return (
     <section 
       id="portfolio" 
@@ -211,6 +214,122 @@ export function PortfolioSection() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Upcoming Projects */}
+        <div className="mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="max-w-3xl mx-auto text-center mb-12"
+          >
+            <span
+              className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
+              style={{ color: "#D4AF37" }}
+            >
+              What's Next
+            </span>
+            <h3
+              className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3"
+              style={{ color: "#FFFFFF" }}
+            >
+              Upcoming Projects
+            </h3>
+            <p className="text-base max-w-xl mx-auto" style={{ color: "#E2E8F0" }}>
+              A look at what we are building right now.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {upcomingProjects.map((project, index) => {
+              const Icon = project.icon;
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                  whileHover={{ y: -6 }}
+                  className="flex flex-col rounded-2xl p-6 border border-dashed transition-all duration-300"
+                  style={{
+                    backgroundColor: "rgba(212, 175, 55, 0.03)",
+                    borderColor: "rgba(212, 175, 55, 0.3)",
+                  }}
+                >
+                  <div className="flex items-start justify-between mb-5">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-xl"
+                      style={{ backgroundColor: "rgba(212, 175, 55, 0.1)" }}
+                    >
+                      <Icon className="h-6 w-6" style={{ color: "#D4AF37" }} />
+                    </div>
+                    <span
+                      className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold"
+                      style={{ backgroundColor: "rgba(212, 175, 55, 0.12)", color: "#D4AF37" }}
+                    >
+                      <span className="relative flex h-2 w-2">
+                        <span
+                          className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+                          style={{ backgroundColor: "#D4AF37" }}
+                        />
+                        <span
+                          className="relative inline-flex h-2 w-2 rounded-full"
+                          style={{ backgroundColor: "#D4AF37" }}
+                        />
+                      </span>
+                      {project.status}
+                    </span>
+                  </div>
+
+                  <span
+                    className="text-xs font-medium uppercase tracking-wider mb-2"
+                    style={{ color: "#D4AF37" }}
+                  >
+                    {project.category}
+                  </span>
+                  <h4 className="text-xl font-bold mb-2" style={{ color: "#FFFFFF" }}>
+                    {project.name}
+                  </h4>
+                  <p className="text-sm text-pretty mb-4 flex-1" style={{ color: "#E2E8F0" }}>
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 text-xs font-medium rounded-md"
+                        style={{ backgroundColor: "rgba(212, 175, 55, 0.08)", color: "#D4AF37" }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="mt-12 text-center"
+          >
+            <Button
+              size="lg"
+              className="font-semibold"
+              style={{ backgroundColor: "#D4AF37", color: "#0B0B0B" }}
+              onClick={() => scrollTo("#contact")}
+            >
+              Have a project in mind? Let's talk
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>
