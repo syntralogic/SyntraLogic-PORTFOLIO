@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { navLinks, type NavLink } from "@/lib/data";
 import { useScrollTo } from "@/hooks/useScrollTo";
+import { ThemeToggle } from "@/components/common/ThemeToggle";
 
 import logo from "@/assets/LOGO.png";
 
@@ -62,11 +63,11 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-[#0B0B0B]/90 backdrop-blur-lg border-b border-[#D4AF37]/20 shadow-lg" 
+          ? "bg-[rgb(var(--sl-bg-rgb)/0.9)] backdrop-blur-lg border-b border-[rgb(var(--sl-gold-rgb)/0.2)] shadow-lg" 
           : "bg-transparent"
       }`}
       style={{
-        boxShadow: scrolled ? "0 4px 30px rgba(212, 175, 55, 0.05)" : "none",
+        boxShadow: scrolled ? "0 4px 30px rgb(var(--sl-gold-rgb) / 0.05)" : "none",
       }}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Main navigation">
@@ -81,7 +82,7 @@ export function Navbar() {
         >
           <div className="flex items-center gap-2">
             <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
-            <span style={{ color: "#FFFFFF" }}>SyntraLogic</span>
+            <span style={{ color: "var(--sl-fg)" }}>SyntraLogic</span>
           </div>
         </a>
 
@@ -95,10 +96,10 @@ export function Navbar() {
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className={`relative inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                        className={`relative inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--sl-gold)] ${
                           isActive
-                            ? "text-[#D4AF37]"
-                            : "text-[#E2E8F0] hover:text-[#D4AF37]"
+                            ? "text-[color:var(--sl-gold-text)]"
+                            : "text-[color:var(--sl-muted)] hover:text-[color:var(--sl-gold-text)]"
                         }`}
                       >
                         {link.label}
@@ -107,7 +108,7 @@ export function Navbar() {
                           <motion.span
                             layoutId="nav-underline"
                             className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
-                            style={{ backgroundColor: "#D4AF37" }}
+                            style={{ backgroundColor: "var(--sl-gold)" }}
                           />
                         )}
                       </button>
@@ -115,15 +116,15 @@ export function Navbar() {
                     <DropdownMenuContent
                       align="start"
                       style={{
-                        backgroundColor: "#0B0B0B",
-                        borderColor: "rgba(212, 175, 55, 0.3)",
+                        backgroundColor: "var(--sl-bg)",
+                        borderColor: "rgb(var(--sl-gold-rgb) / 0.3)",
                       }}
                     >
                       {link.children.map((child) => (
                         <DropdownMenuItem
                           key={child.href}
                           onSelect={() => handleNavClick(child.href)}
-                          className="cursor-pointer text-[#E2E8F0] focus:bg-[#D4AF37]/10 focus:text-[#D4AF37]"
+                          className="cursor-pointer text-[color:var(--sl-muted)] focus:bg-[rgb(var(--sl-gold-rgb)/0.1)] focus:text-[color:var(--sl-gold-text)]"
                         >
                           {child.label}
                         </DropdownMenuItem>
@@ -142,10 +143,10 @@ export function Navbar() {
                     handleNavClick(link.href);
                   }}
                   role="menuitem"
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--sl-gold)] ${
                     isActive 
-                      ? "text-[#D4AF37]" 
-                      : "text-[#E2E8F0] hover:text-[#D4AF37]"
+                      ? "text-[color:var(--sl-gold-text)]" 
+                      : "text-[color:var(--sl-muted)] hover:text-[color:var(--sl-gold-text)]"
                   }`}
                 >
                   {link.label}
@@ -153,7 +154,7 @@ export function Navbar() {
                     <motion.span
                       layoutId="nav-underline"
                       className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
-                      style={{ backgroundColor: "#D4AF37" }}
+                      style={{ backgroundColor: "var(--sl-gold)" }}
                     />
                   )}
                 </a>
@@ -162,35 +163,37 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Button
             onClick={() => handleNavClick("#clients")}
-            className="transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+            className="transition-all duration-300 hover:shadow-lg hover:shadow-[color:rgb(var(--sl-gold-rgb)/0.2)]"
             style={{
-              backgroundColor: "#D4AF37",
-              color: "#0B0B0B",
+              backgroundColor: "var(--sl-gold)",
+              color: "var(--sl-on-gold)",
               fontWeight: 600,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#C5A030";
+              e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#D4AF37";
+              e.currentTarget.style.backgroundColor = "var(--sl-gold)";
             }}
           >
             Start a Project
           </Button>
         </div>
 
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 aria-label="Open navigation menu"
-                style={{ color: "#FFFFFF" }}
-                className="hover:bg-[#D4AF37]/10"
+                style={{ color: "var(--sl-fg)" }}
+                className="hover:bg-[rgb(var(--sl-gold-rgb)/0.1)]"
               >
                 <Menu className="h-6 w-6" />
               </Button>
@@ -199,8 +202,8 @@ export function Navbar() {
               side="right"
               className="w-full max-w-[calc(100%-2rem)] md:max-w-sm"
               style={{
-                backgroundColor: "#0B0B0B",
-                borderColor: "rgba(212, 175, 55, 0.2)",
+                backgroundColor: "var(--sl-bg)",
+                borderColor: "rgb(var(--sl-gold-rgb) / 0.2)",
               }}
             >
               <div className="flex flex-col h-full pt-8">
@@ -211,7 +214,7 @@ export function Navbar() {
                     handleNavClick("#home");
                   }}
                   className="flex items-center gap-2 text-2xl font-bold mb-8"
-                  style={{ color: "#FFFFFF" }}
+                  style={{ color: "var(--sl-fg)" }}
                 >
                   <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
                   SyntraLogic
@@ -230,8 +233,8 @@ export function Navbar() {
                           role="menuitem"
                           className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                             isActive
-                              ? "text-[#D4AF37] bg-[#D4AF37]/10"
-                              : "text-[#E2E8F0] hover:bg-[#D4AF37]/5 hover:text-[#D4AF37]"
+                              ? "text-[color:var(--sl-gold-text)] bg-[rgb(var(--sl-gold-rgb)/0.1)]"
+                              : "text-[color:var(--sl-muted)] hover:bg-[rgb(var(--sl-gold-rgb)/0.05)] hover:text-[color:var(--sl-gold-text)]"
                           }`}
                         >
                           {link.label}
@@ -243,17 +246,17 @@ export function Navbar() {
                 <div className="mt-auto pb-8">
                   <Button
                     onClick={() => handleNavClick("#clients")}
-                    className="w-full transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                    className="w-full transition-all duration-300 hover:shadow-lg hover:shadow-[color:rgb(var(--sl-gold-rgb)/0.2)]"
                     style={{
-                      backgroundColor: "#D4AF37",
-                      color: "#0B0B0B",
+                      backgroundColor: "var(--sl-gold)",
+                      color: "var(--sl-on-gold)",
                       fontWeight: 600,
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#C5A030";
+                      e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#D4AF37";
+                      e.currentTarget.style.backgroundColor = "var(--sl-gold)";
                     }}
                   >
                     Start a Project

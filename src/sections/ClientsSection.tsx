@@ -69,15 +69,15 @@ export function ClientsSection() {
     <section 
       id="clients" 
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Gold grid overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -88,14 +88,14 @@ export function ClientsSection() {
       <div 
         className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
       <div 
         className="absolute bottom-0 left-0 w-1/2 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.08) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -111,7 +111,7 @@ export function ClientsSection() {
           >
             <span 
               className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "var(--sl-gold-text)" }}
             >
               For Clients
             </span>
@@ -123,7 +123,7 @@ export function ClientsSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--sl-fg)" }}
           >
             Start Your Project With SyntraLogic
           </motion.h2>
@@ -134,7 +134,7 @@ export function ClientsSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg max-w-2xl mx-auto"
-            style={{ color: "#E2E8F0" }}
+            style={{ color: "var(--sl-muted)" }}
           >
             Tell us about your project. We will review your requirements and prepare a tailored proposal.
           </motion.p>
@@ -147,8 +147,8 @@ export function ClientsSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl mx-auto p-6 md:p-10 rounded-3xl border backdrop-blur-sm transition-all duration-300"
           style={{
-            backgroundColor: "rgba(255, 255, 255, 0.02)",
-            borderColor: "rgba(212, 175, 55, 0.08)",
+            backgroundColor: "rgb(var(--sl-tint) / 0.02)",
+            borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
           }}
         >
           <Form {...form}>
@@ -159,12 +159,12 @@ export function ClientsSection() {
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Full Name</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Full Name</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Your Name" 
                           {...field} 
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -176,12 +176,12 @@ export function ClientsSection() {
                   name="companyName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Company Name</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Company Name</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="Acme Inc." 
                           {...field} 
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -196,13 +196,13 @@ export function ClientsSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Email</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Email</FormLabel>
                       <FormControl>
                         <Input 
                           type="email" 
                           placeholder="yourcompany@email.com" 
                           {...field} 
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -214,13 +214,13 @@ export function ClientsSection() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Phone Number</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Phone Number</FormLabel>
                       <FormControl>
                         <Input 
                           type="tel" 
                           placeholder="+92 300 1234567" 
                           {...field} 
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -235,19 +235,19 @@ export function ClientsSection() {
                   name="projectType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Project Type</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Project Type</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                          <SelectTrigger className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]">
                             <SelectValue placeholder="Select type" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                        <SelectContent className="bg-[color:var(--sl-bg)] border-[rgb(var(--sl-gold-rgb)/0.1)]">
                           {projectTypes.map((type) => (
                             <SelectItem 
                               key={type} 
                               value={type}
-                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                              className="text-[color:var(--sl-muted)] hover:text-[color:var(--sl-gold-text)] hover:bg-[rgb(var(--sl-gold-rgb)/0.05)] focus:bg-[rgb(var(--sl-gold-rgb)/0.05)]"
                             >
                               {type}
                             </SelectItem>
@@ -263,19 +263,19 @@ export function ClientsSection() {
                   name="budget"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Estimated Budget</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Estimated Budget</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                          <SelectTrigger className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]">
                             <SelectValue placeholder="Select budget" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                        <SelectContent className="bg-[color:var(--sl-bg)] border-[rgb(var(--sl-gold-rgb)/0.1)]">
                           {budgetRanges.map((range) => (
                             <SelectItem 
                               key={range} 
                               value={range}
-                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                              className="text-[color:var(--sl-muted)] hover:text-[color:var(--sl-gold-text)] hover:bg-[rgb(var(--sl-gold-rgb)/0.05)] focus:bg-[rgb(var(--sl-gold-rgb)/0.05)]"
                             >
                               {range}
                             </SelectItem>
@@ -291,19 +291,19 @@ export function ClientsSection() {
                   name="timeline"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Timeline</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Timeline</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] focus:border-[#D4AF37] focus:ring-[#D4AF37]/20">
+                          <SelectTrigger className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]">
                             <SelectValue placeholder="Select timeline" />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent className="bg-[#0B0B0B] border-[rgba(212,175,55,0.1)]">
+                        <SelectContent className="bg-[color:var(--sl-bg)] border-[rgb(var(--sl-gold-rgb)/0.1)]">
                           {timelines.map((timeline) => (
                             <SelectItem 
                               key={timeline} 
                               value={timeline}
-                              className="text-[#E2E8F0] hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.05)] focus:bg-[rgba(212,175,55,0.05)]"
+                              className="text-[color:var(--sl-muted)] hover:text-[color:var(--sl-gold-text)] hover:bg-[rgb(var(--sl-gold-rgb)/0.05)] focus:bg-[rgb(var(--sl-gold-rgb)/0.05)]"
                             >
                               {timeline}
                             </SelectItem>
@@ -321,13 +321,13 @@ export function ClientsSection() {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel style={{ color: "#E2E8F0" }}>Project Description</FormLabel>
+                    <FormLabel style={{ color: "var(--sl-muted)" }}>Project Description</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Describe your goals, features, and any specific requirements..."
                         rows={5}
                         {...field}
-                        className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 resize-none"
+                        className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)] resize-none"
                       />
                     </FormControl>
                     <FormMessage />
@@ -338,17 +338,17 @@ export function ClientsSection() {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[color:rgb(var(--sl-gold-rgb)/0.2)]"
                 style={{
-                  backgroundColor: "#D4AF37",
-                  color: "#0B0B0B",
+                  backgroundColor: "var(--sl-gold)",
+                  color: "var(--sl-on-gold)",
                   fontWeight: 600,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C5A030";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold)";
                 }}
               >
                 {loading ? (

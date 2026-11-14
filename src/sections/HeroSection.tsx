@@ -10,14 +10,14 @@ export function HeroSection() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Grid background - Gold tinted */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)",
+            "linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
         aria-hidden="true"
@@ -34,7 +34,7 @@ export function HeroSection() {
               height: 80 + i * 40,
               left: `${10 + i * 15}%`,
               top: `${15 + i * 12}%`,
-              background: `radial-gradient(circle, rgba(212, 175, 55, ${0.15 - i * 0.015}), transparent 70%)`,
+              background: `radial-gradient(circle, rgb(var(--sl-gold-rgb) / ${0.15 - i * 0.015}), transparent 70%)`,
             }}
             animate={{
               y: [0, -30, 0],
@@ -53,7 +53,7 @@ export function HeroSection() {
       <div 
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(212, 175, 55, 0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgb(var(--sl-gold-rgb) / 0.06) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -68,22 +68,22 @@ export function HeroSection() {
             <span 
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6"
               style={{
-                backgroundColor: "rgba(212, 175, 55, 0.1)",
-                color: "#D4AF37",
-                border: "1px solid rgba(212, 175, 55, 0.2)",
+                backgroundColor: "rgb(var(--sl-gold-rgb) / 0.1)",
+                color: "var(--sl-gold-text)",
+                border: "1px solid rgb(var(--sl-gold-rgb) / 0.2)",
               }}
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span 
                   className="absolute inline-flex h-full w-full rounded-full opacity-75"
                   style={{ 
-                    backgroundColor: "#D4AF37",
+                    backgroundColor: "var(--sl-gold)",
                     animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite"
                   }}
                 />
                 <span 
                   className="relative inline-flex rounded-full h-2.5 w-2.5"
-                  style={{ backgroundColor: "#D4AF37" }}
+                  style={{ backgroundColor: "var(--sl-gold)" }}
                 />
               </span>
               Building Digital Excellence
@@ -96,9 +96,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight text-balance mb-6"
           >
-            <span style={{ color: "#FFFFFF" }}>Transforming Ideas into</span>
+            <span style={{ color: "var(--sl-fg)" }}>Transforming Ideas into</span>
             <br />
-            <span style={{ color: "#D4AF37" }}>Powerful Software Solutions</span>
+            <span style={{ color: "var(--sl-gold-text)" }}>Powerful Software Solutions</span>
           </motion.h1>
 
           <motion.p
@@ -106,7 +106,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-10 text-pretty"
-            style={{ color: "#E2E8F0" }}
+            style={{ color: "var(--sl-muted)" }}
           >
             SyntraLogic is a software development company delivering scalable, secure, and modern digital solutions for businesses worldwide. We build software, not just designs.
           </motion.p>
@@ -122,15 +122,15 @@ export function HeroSection() {
               onClick={() => scrollTo("#clients")}
               className="group px-8 transition-all duration-300 hover:shadow-lg hover:shadow-gold/20"
               style={{
-                backgroundColor: "#D4AF37",
-                color: "#0B0B0B",
+                backgroundColor: "var(--sl-gold)",
+                color: "var(--sl-on-gold)",
                 fontWeight: 600,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#C5A030";
+                e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#D4AF37";
+                e.currentTarget.style.backgroundColor = "var(--sl-gold)";
               }}
             >
               Start Your Project
@@ -142,18 +142,18 @@ export function HeroSection() {
               onClick={() => scrollTo("#contact")}
               className="px-8 transition-all duration-300"
               style={{
-                borderColor: "rgba(212, 175, 55, 0.4)",
-                color: "#E2E8F0",
+                borderColor: "rgb(var(--sl-gold-rgb) / 0.4)",
+                color: "var(--sl-muted)",
                 backgroundColor: "transparent",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#D4AF37";
-                e.currentTarget.style.color = "#D4AF37";
-                e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.05)";
+                e.currentTarget.style.borderColor = "var(--sl-gold)";
+                e.currentTarget.style.color = "var(--sl-gold-text)";
+                e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.05)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.4)";
-                e.currentTarget.style.color = "#E2E8F0";
+                e.currentTarget.style.borderColor = "rgb(var(--sl-gold-rgb) / 0.4)";
+                e.currentTarget.style.color = "var(--sl-muted)";
                 e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
@@ -166,11 +166,11 @@ export function HeroSection() {
               onClick={() => scrollTo("#client-hunters")}
               className="px-8 transition-all duration-300"
               style={{
-                color: "#D4AF37",
+                color: "var(--sl-gold-text)",
                 backgroundColor: "transparent",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
+                e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.08)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = "transparent";
@@ -187,7 +187,7 @@ export function HeroSection() {
       <div 
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{
-          background: "linear-gradient(to top, #0B0B0B, transparent)"
+          background: "linear-gradient(to top, var(--sl-bg), transparent)"
         }}
         aria-hidden="true"
       />

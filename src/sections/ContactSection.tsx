@@ -99,15 +99,15 @@ export function ContactSection() {
     <section 
       id="contact" 
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Gold grid overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -118,7 +118,7 @@ export function ContactSection() {
       <div 
         className="absolute top-0 right-0 w-1/2 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -134,7 +134,7 @@ export function ContactSection() {
           >
             <span 
               className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "var(--sl-gold-text)" }}
             >
               Contact Us
             </span>
@@ -146,7 +146,7 @@ export function ContactSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--sl-fg)" }}
           >
             Let's Build Something Amazing
           </motion.h2>
@@ -157,7 +157,7 @@ export function ContactSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg max-w-2xl mx-auto"
-            style={{ color: "#E2E8F0" }}
+            style={{ color: "var(--sl-muted)" }}
           >
             Have a project in mind? Let's discuss how we can bring your vision to life.
           </motion.p>
@@ -172,7 +172,7 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-6"
           >
-            <p style={{ color: "#E2E8F0" }}>
+            <p style={{ color: "var(--sl-muted)" }}>
               Whether you need a full product build, a reliable engineering
               team, or a long-term technology partner, we are here to help.
             </p>
@@ -192,27 +192,27 @@ export function ContactSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 group"
                     style={{
-                      borderColor: "rgba(212, 175, 55, 0.08)",
-                      backgroundColor: "rgba(255, 255, 255, 0.02)",
+                      borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                      backgroundColor: "rgb(var(--sl-tint) / 0.02)",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
-                      e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.03)";
+                      e.currentTarget.style.borderColor = "rgb(var(--sl-gold-rgb) / 0.2)";
+                      e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.03)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.08)";
-                      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.02)";
+                      e.currentTarget.style.borderColor = "rgb(var(--sl-gold-rgb) / 0.08)";
+                      e.currentTarget.style.backgroundColor = "rgb(var(--sl-tint) / 0.02)";
                     }}
                   >
                     <Icon 
                       className="h-5 w-5 transition-colors duration-300"
-                      style={{ color: "#D4AF37" }}
+                      style={{ color: "var(--sl-gold-text)" }}
                     />
                     <div>
-                      <p className="text-sm" style={{ color: "#E2E8F0" }}>
+                      <p className="text-sm" style={{ color: "var(--sl-muted)" }}>
                         {method.label}
                       </p>
-                      <p className="font-medium" style={{ color: "#FFFFFF" }}>
+                      <p className="font-medium" style={{ color: "var(--sl-fg)" }}>
                         {method.value}
                       </p>
                     </div>
@@ -230,8 +230,8 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3 p-6 md:p-10 rounded-3xl border backdrop-blur-sm transition-all duration-300"
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.02)",
-              borderColor: "rgba(212, 175, 55, 0.08)",
+              backgroundColor: "rgb(var(--sl-tint) / 0.02)",
+              borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
             }}
           >
             <Form {...form}>
@@ -244,12 +244,12 @@ export function ContactSection() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Name</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Your name"
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -262,13 +262,13 @@ export function ContactSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Email</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
                           placeholder="your@email.com"
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -281,12 +281,12 @@ export function ContactSection() {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Subject</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Subject</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Project inquiry"
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -299,13 +299,13 @@ export function ContactSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Message</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Message</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={5}
                           placeholder="How can we help you?"
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 resize-none"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)] resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -316,17 +316,17 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                  className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[color:rgb(var(--sl-gold-rgb)/0.2)]"
                   style={{
-                    backgroundColor: "#D4AF37",
-                    color: "#0B0B0B",
+                    backgroundColor: "var(--sl-gold)",
+                    color: "var(--sl-on-gold)",
                     fontWeight: 600,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#C5A030";
+                    e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#D4AF37";
+                    e.currentTarget.style.backgroundColor = "var(--sl-gold)";
                   }}
                 >
                   {loading ? (

@@ -22,8 +22,8 @@ export function Footer() {
     <footer 
       className="relative border-t pt-16 pb-8 overflow-hidden"
       style={{
-        backgroundColor: "#0B0B0B",
-        borderColor: "rgba(212, 175, 55, 0.08)",
+        backgroundColor: "var(--sl-bg)",
+        borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
       }}
     >
       {/* Gold grid overlay */}
@@ -31,8 +31,8 @@ export function Footer() {
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -43,7 +43,7 @@ export function Footer() {
       <div 
         className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -61,9 +61,9 @@ export function Footer() {
               aria-label="SyntraLogic Home"
             >
             <img src={logo} alt="SyntraLogic Logo" className="h-7 w-auto" />
-              <span style={{ color: "#FFFFFF" }}>SyntraLogic</span>
+              <span style={{ color: "var(--sl-fg)" }}>SyntraLogic</span>
             </a>
-            <p className="text-sm text-pretty mb-6" style={{ color: "#E2E8F0" }}>
+            <p className="text-sm text-pretty mb-6" style={{ color: "var(--sl-muted)" }}>
               Premium software development company delivering scalable, secure, and modern digital solutions for businesses worldwide.
             </p>
             <div className="flex gap-3">
@@ -73,17 +73,17 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: "rgba(212, 175, 55, 0.08)",
-                  color: "#E2E8F0",
+                  backgroundColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                  color: "var(--sl-muted)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
-                  e.currentTarget.style.color = "#0B0B0B";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold)";
+                  e.currentTarget.style.color = "var(--sl-on-gold)";
                   e.currentTarget.style.transform = "scale(1.1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
-                  e.currentTarget.style.color = "#E2E8F0";
+                  e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.08)";
+                  e.currentTarget.style.color = "var(--sl-muted)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
                 aria-label="LinkedIn"
@@ -94,17 +94,17 @@ export function Footer() {
                 href={`mailto:${companyInfo.email}`}
                 className="p-2 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: "rgba(212, 175, 55, 0.08)",
-                  color: "#E2E8F0",
+                  backgroundColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                  color: "var(--sl-muted)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
-                  e.currentTarget.style.color = "#0B0B0B";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold)";
+                  e.currentTarget.style.color = "var(--sl-on-gold)";
                   e.currentTarget.style.transform = "scale(1.1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
-                  e.currentTarget.style.color = "#E2E8F0";
+                  e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.08)";
+                  e.currentTarget.style.color = "var(--sl-muted)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
                 aria-label="Email"
@@ -117,17 +117,17 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: "rgba(212, 175, 55, 0.08)",
-                  color: "#E2E8F0",
+                  backgroundColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                  color: "var(--sl-muted)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
-                  e.currentTarget.style.color = "#0B0B0B";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold)";
+                  e.currentTarget.style.color = "var(--sl-on-gold)";
                   e.currentTarget.style.transform = "scale(1.1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
-                  e.currentTarget.style.color = "#E2E8F0";
+                  e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.08)";
+                  e.currentTarget.style.color = "var(--sl-muted)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
                 aria-label="WhatsApp"
@@ -140,17 +140,17 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: "rgba(212, 175, 55, 0.08)",
-                  color: "#E2E8F0",
+                  backgroundColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                  color: "var(--sl-muted)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#D4AF37";
-                  e.currentTarget.style.color = "#0B0B0B";
+                  e.currentTarget.style.backgroundColor = "var(--sl-gold)";
+                  e.currentTarget.style.color = "var(--sl-on-gold)";
                   e.currentTarget.style.transform = "scale(1.1)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.08)";
-                  e.currentTarget.style.color = "#E2E8F0";
+                  e.currentTarget.style.backgroundColor = "rgb(var(--sl-gold-rgb) / 0.08)";
+                  e.currentTarget.style.color = "var(--sl-muted)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
                 aria-label="GitHub"
@@ -161,7 +161,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-4" style={{ color: "#FFFFFF" }}>
+            <h3 className="text-base font-semibold mb-4" style={{ color: "var(--sl-fg)" }}>
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -174,12 +174,12 @@ export function Footer() {
                       scrollTo(link.href);
                     }}
                     className="text-sm transition-colors duration-300"
-                    style={{ color: "#E2E8F0" }}
+                    style={{ color: "var(--sl-muted)" }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#D4AF37";
+                      e.currentTarget.style.color = "var(--sl-gold-text)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#E2E8F0";
+                      e.currentTarget.style.color = "var(--sl-muted)";
                     }}
                   >
                     {link.label}
@@ -190,7 +190,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-4" style={{ color: "#FFFFFF" }}>
+            <h3 className="text-base font-semibold mb-4" style={{ color: "var(--sl-fg)" }}>
               Services
             </h3>
             <ul className="space-y-2">
@@ -203,12 +203,12 @@ export function Footer() {
                       scrollTo(link.href);
                     }}
                     className="text-sm transition-colors duration-300"
-                    style={{ color: "#E2E8F0" }}
+                    style={{ color: "var(--sl-muted)" }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#D4AF37";
+                      e.currentTarget.style.color = "var(--sl-gold-text)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "#E2E8F0";
+                      e.currentTarget.style.color = "var(--sl-muted)";
                     }}
                   >
                     {link.label}
@@ -219,75 +219,75 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-4" style={{ color: "#FFFFFF" }}>
+            <h3 className="text-base font-semibold mb-4" style={{ color: "var(--sl-fg)" }}>
               Contact
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
-                <Mail className="h-4 w-4 mt-0.5" style={{ color: "#D4AF37" }} />
+                <Mail className="h-4 w-4 mt-0.5" style={{ color: "var(--sl-gold-text)" }} />
                 <a 
                   href={`mailto:${companyInfo.email}`} 
                   className="transition-colors duration-300"
-                  style={{ color: "#E2E8F0" }}
+                  style={{ color: "var(--sl-muted)" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#D4AF37";
+                    e.currentTarget.style.color = "var(--sl-gold-text)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#E2E8F0";
+                    e.currentTarget.style.color = "var(--sl-muted)";
                   }}
                 >
                   {companyInfo.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="h-4 w-4 mt-0.5" style={{ color: "#D4AF37" }} />
+                <Phone className="h-4 w-4 mt-0.5" style={{ color: "var(--sl-gold-text)" }} />
                 <a
                   href={`https://wa.me/${companyInfo.whatsapp.replace(/\D/g, "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-300"
-                  style={{ color: "#E2E8F0" }}
+                  style={{ color: "var(--sl-muted)" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#D4AF37";
+                    e.currentTarget.style.color = "var(--sl-gold-text)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#E2E8F0";
+                    e.currentTarget.style.color = "var(--sl-muted)";
                   }}
                 >
                   {companyInfo.phoneLabel}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Linkedin className="h-4 w-4 mt-0.5" style={{ color: "#D4AF37" }} />
+                <Linkedin className="h-4 w-4 mt-0.5" style={{ color: "var(--sl-gold-text)" }} />
                 <a
                   href={companyInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-300"
-                  style={{ color: "#E2E8F0" }}
+                  style={{ color: "var(--sl-muted)" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#D4AF37";
+                    e.currentTarget.style.color = "var(--sl-gold-text)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#E2E8F0";
+                    e.currentTarget.style.color = "var(--sl-muted)";
                   }}
                 >
                   SyntraLogic
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Github className="h-4 w-4 mt-0.5" style={{ color: "#D4AF37" }} />
+                <Github className="h-4 w-4 mt-0.5" style={{ color: "var(--sl-gold-text)" }} />
                 <a
                   href={companyInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-colors duration-300"
-                  style={{ color: "#E2E8F0" }}
+                  style={{ color: "var(--sl-muted)" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#D4AF37";
+                    e.currentTarget.style.color = "var(--sl-gold-text)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#E2E8F0";
+                    e.currentTarget.style.color = "var(--sl-muted)";
                   }}
                 >
                   SyntraLogic
@@ -299,21 +299,21 @@ export function Footer() {
 
         <div 
           className="border-t pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
-          style={{ borderColor: "rgba(212, 175, 55, 0.08)" }}
+          style={{ borderColor: "rgb(var(--sl-gold-rgb) / 0.08)" }}
         >
-          <p className="text-sm text-center md:text-left" style={{ color: "#E2E8F0" }}>
+          <p className="text-sm text-center md:text-left" style={{ color: "var(--sl-muted)" }}>
             &copy; {new Date().getFullYear()} SyntraLogic. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm">
             <a 
               href="#" 
               className="transition-colors duration-300"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "var(--sl-muted)" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#D4AF37";
+                e.currentTarget.style.color = "var(--sl-gold-text)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#E2E8F0";
+                e.currentTarget.style.color = "var(--sl-muted)";
               }}
             >
               Privacy Policy
@@ -321,12 +321,12 @@ export function Footer() {
             <a 
               href="#" 
               className="transition-colors duration-300"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "var(--sl-muted)" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#D4AF37";
+                e.currentTarget.style.color = "var(--sl-gold-text)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#E2E8F0";
+                e.currentTarget.style.color = "var(--sl-muted)";
               }}
             >
               Terms & Conditions

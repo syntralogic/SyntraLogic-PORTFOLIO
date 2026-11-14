@@ -12,15 +12,15 @@ export function FAQsSection() {
     <section 
       id="faqs" 
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Gold grid overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -31,7 +31,7 @@ export function FAQsSection() {
       <div 
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -47,7 +47,7 @@ export function FAQsSection() {
           >
             <span 
               className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "var(--sl-gold-text)" }}
             >
               FAQs
             </span>
@@ -59,7 +59,7 @@ export function FAQsSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--sl-fg)" }}
           >
             Frequently Asked Questions
           </motion.h2>
@@ -70,7 +70,7 @@ export function FAQsSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg max-w-2xl mx-auto"
-            style={{ color: "#E2E8F0" }}
+            style={{ color: "var(--sl-muted)" }}
           >
             Everything you need to know about working with SyntraLogic.
           </motion.p>
@@ -90,31 +90,31 @@ export function FAQsSection() {
                 value={`item-${index}`}
                 className="rounded-xl border px-6 transition-all duration-300 data-[state=open]:shadow-lg"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.02)",
-                  borderColor: "rgba(212, 175, 55, 0.08)",
+                  backgroundColor: "rgb(var(--sl-tint) / 0.02)",
+                  borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
                 }}
                 onMouseEnter={(e) => {
                   if (!e.currentTarget.getAttribute('data-state') || e.currentTarget.getAttribute('data-state') !== 'open') {
-                    e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.2)";
+                    e.currentTarget.style.borderColor = "rgb(var(--sl-gold-rgb) / 0.2)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!e.currentTarget.getAttribute('data-state') || e.currentTarget.getAttribute('data-state') !== 'open') {
-                    e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.08)";
+                    e.currentTarget.style.borderColor = "rgb(var(--sl-gold-rgb) / 0.08)";
                   }
                 }}
               >
                 <AccordionTrigger 
                   className="text-left text-base md:text-lg font-medium hover:no-underline py-5 group"
-                  style={{ color: "#FFFFFF" }}
+                  style={{ color: "var(--sl-fg)" }}
                 >
-                  <span className="group-hover:text-[#D4AF37] transition-colors duration-300">
+                  <span className="group-hover:text-[color:var(--sl-gold-text)] transition-colors duration-300">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent 
                   className="text-pretty pb-5"
-                  style={{ color: "#E2E8F0" }}
+                  style={{ color: "var(--sl-muted)" }}
                 >
                   {faq.answer}
                 </AccordionContent>

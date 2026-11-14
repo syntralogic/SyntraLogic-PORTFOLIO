@@ -275,7 +275,8 @@ export interface PortfolioProject {
   name: string;
   category: string;
   description: string;
-  image: string;
+  /** Screenshot. When omitted, a placeholder is shown instead. */
+  image?: string;
   stack: string[];
   liveUrl: string;
   repoUrl: string;
@@ -336,6 +337,16 @@ export const projects: PortfolioProject[] = [
     stack: ["React.js", "Node.js", "JavaScript", "MySQL","TypeScript"],
     liveUrl: "https://pawdeal-frontend.vercel.app",
     repoUrl: "https://github.com/syntralogic/PawDeal-Backend",
+  },
+  {
+    id: "marchesdirect",
+    name: "MarchesDirect",
+    category: "Procurement",
+    description:
+      "Search platform for French public tenders and subcontracting opportunities, with trade-based matching and region, department and city filters.",
+    stack: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL"],
+    liveUrl: "https://marchesdirect.fr",
+    repoUrl: "https://github.com/syntralogic",
   },
 ];
 

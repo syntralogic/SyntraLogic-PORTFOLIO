@@ -59,15 +59,15 @@ export function ClientHuntersSection() {
     <section 
       id="client-hunters" 
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Gold grid overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -78,7 +78,7 @@ export function ClientHuntersSection() {
       <div 
         className="absolute top-0 left-0 w-1/2 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -93,19 +93,19 @@ export function ClientHuntersSection() {
           >
             <span 
               className="inline-block mb-3 text-sm font-semibold tracking-wider uppercase"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "var(--sl-gold-text)" }}
             >
               Partnership Program
             </span>
             <h2 
               className="text-2xl md:text-4xl lg:text-5xl font-bold text-balance mb-6"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--sl-fg)" }}
             >
               Become a Client Hunter
             </h2>
             <p 
               className="text-base md:text-lg text-pretty mb-8"
-              style={{ color: "#E2E8F0" }}
+              style={{ color: "var(--sl-muted)" }}
             >
               Join the SyntraLogic Client Hunter program and earn commissions by referring successful software projects. Whether you are a consultant, agency, freelancer, or connector, we reward you for bringing us clients who need world-class software development.
             </p>
@@ -121,13 +121,13 @@ export function ClientHuntersSection() {
                   <div 
                     className="mt-1 p-1 rounded-full"
                     style={{
-                      backgroundColor: "rgba(212, 175, 55, 0.08)",
-                      color: "#D4AF37",
+                      backgroundColor: "rgb(var(--sl-gold-rgb) / 0.08)",
+                      color: "var(--sl-gold-text)",
                     }}
                   >
                     <Briefcase className="h-4 w-4" />
                   </div>
-                  <p style={{ color: "#E2E8F0" }}>{item}</p>
+                  <p style={{ color: "var(--sl-muted)" }}>{item}</p>
                 </div>
               ))}
             </div>
@@ -140,13 +140,13 @@ export function ClientHuntersSection() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="p-6 md:p-10 rounded-3xl border backdrop-blur-sm"
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.02)",
-              borderColor: "rgba(212, 175, 55, 0.08)",
+              backgroundColor: "rgb(var(--sl-tint) / 0.02)",
+              borderColor: "rgb(var(--sl-gold-rgb) / 0.08)",
             }}
           >
             <h3 
               className="text-xl font-semibold mb-6"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--sl-fg)" }}
             >
               Apply to Become a Client Hunter
             </h3>
@@ -158,12 +158,12 @@ export function ClientHuntersSection() {
                     name="fullName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel style={{ color: "#E2E8F0" }}>Full Name</FormLabel>
+                        <FormLabel style={{ color: "var(--sl-muted)" }}>Full Name</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your Name" 
                             {...field} 
-                            className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                            className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -175,12 +175,12 @@ export function ClientHuntersSection() {
                     name="country"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel style={{ color: "#E2E8F0" }}>Country</FormLabel>
+                        <FormLabel style={{ color: "var(--sl-muted)" }}>Country</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Pakistan" 
                             {...field} 
-                            className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                            className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -195,13 +195,13 @@ export function ClientHuntersSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel style={{ color: "#E2E8F0" }}>Email</FormLabel>
+                        <FormLabel style={{ color: "var(--sl-muted)" }}>Email</FormLabel>
                         <FormControl>
                           <Input 
                             type="email" 
                             placeholder="youremail@example.com" 
                             {...field} 
-                            className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                            className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -213,13 +213,13 @@ export function ClientHuntersSection() {
                     name="whatsapp"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel style={{ color: "#E2E8F0" }}>WhatsApp Number</FormLabel>
+                        <FormLabel style={{ color: "var(--sl-muted)" }}>WhatsApp Number</FormLabel>
                         <FormControl>
                           <Input 
                             type="tel" 
                             placeholder="+92 300 1234567" 
                             {...field} 
-                            className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                            className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -233,13 +233,13 @@ export function ClientHuntersSection() {
                   name="linkedIn"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>LinkedIn Profile (optional)</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>LinkedIn Profile (optional)</FormLabel>
                       <FormControl>
                         <Input 
                           type="url" 
                           placeholder="https://linkedin.com/in/your_id" 
                           {...field} 
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -252,13 +252,13 @@ export function ClientHuntersSection() {
                   name="experience"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Your Experience</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Your Experience</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Tell us about your background and how you find clients..."
                           rows={4}
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 resize-none"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)] resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -271,13 +271,13 @@ export function ClientHuntersSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel style={{ color: "#E2E8F0" }}>Message</FormLabel>
+                      <FormLabel style={{ color: "var(--sl-muted)" }}>Message</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Why do you want to join the Client Hunter program?"
                           rows={4}
                           {...field}
-                          className="bg-[rgba(255,255,255,0.03)] border-[rgba(212,175,55,0.1)] text-[#FFFFFF] placeholder:text-[#E2E8F0]/40 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 resize-none"
+                          className="bg-[rgb(var(--sl-tint)/0.03)] border-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-fg)] placeholder:text-[rgb(var(--sl-muted-rgb)/0.4)] focus:border-[color:var(--sl-gold)] focus:ring-[rgb(var(--sl-gold-rgb)/0.2)] resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -288,17 +288,17 @@ export function ClientHuntersSection() {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[#D4AF37]/20"
+                  className="w-full md:w-auto transition-all duration-300 hover:shadow-lg hover:shadow-[color:rgb(var(--sl-gold-rgb)/0.2)]"
                   style={{
-                    backgroundColor: "#D4AF37",
-                    color: "#0B0B0B",
+                    backgroundColor: "var(--sl-gold)",
+                    color: "var(--sl-on-gold)",
                     fontWeight: 600,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#C5A030";
+                    e.currentTarget.style.backgroundColor = "var(--sl-gold-hover)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#D4AF37";
+                    e.currentTarget.style.backgroundColor = "var(--sl-gold)";
                   }}
                 >
                   {loading ? (

@@ -10,15 +10,15 @@ export function ServicesSection() {
     <section 
       id="services" 
       className="relative py-24 md:py-32 overflow-hidden"
-      style={{ backgroundColor: "#0B0B0B" }}
+      style={{ backgroundColor: "var(--sl-bg)" }}
     >
       {/* Gold grid overlay */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px)
+            linear-gradient(rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(var(--sl-gold-rgb) / 0.08) 1px, transparent 1px)
           `,
           backgroundSize: "60px 60px",
         }}
@@ -29,7 +29,7 @@ export function ServicesSection() {
       <div 
         className="absolute top-0 left-0 w-1/2 h-1/2 pointer-events-none opacity-10"
         style={{
-          background: "radial-gradient(ellipse, rgba(212, 175, 55, 0.15) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgb(var(--sl-gold-rgb) / 0.15) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -45,7 +45,7 @@ export function ServicesSection() {
           >
             <span 
               className="inline-block text-sm font-medium uppercase tracking-wider mb-4"
-              style={{ color: "#D4AF37" }}
+              style={{ color: "var(--sl-gold-text)" }}
             >
               What We Build
             </span>
@@ -57,7 +57,7 @@ export function ServicesSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--sl-fg)" }}
           >
             End-to-End Software Development Services
           </motion.h2>
@@ -68,7 +68,7 @@ export function ServicesSection() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="text-base md:text-lg max-w-2xl mx-auto"
-            style={{ color: "#E2E8F0" }}
+            style={{ color: "var(--sl-muted)" }}
           >
             From concept to deployment, we deliver full-stack solutions tailored to your business needs.
           </motion.p>
@@ -87,19 +87,19 @@ export function ServicesSection() {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 className={`rounded-2xl border transition-all duration-300 ${
                   isOpen
-                    ? "border-[#D4AF37] shadow-lg"
-                    : "border-[rgba(212,175,55,0.1)] hover:border-[rgba(212,175,55,0.3)]"
+                    ? "border-[color:var(--sl-gold)] shadow-lg"
+                    : "border-[rgb(var(--sl-gold-rgb)/0.1)] hover:border-[rgb(var(--sl-gold-rgb)/0.3)]"
                 }`}
                 style={{
                   background: isOpen 
-                    ? "linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02))"
-                    : "rgba(255, 255, 255, 0.02)",
-                  boxShadow: isOpen ? "0 0 40px rgba(212, 175, 55, 0.05)" : "none",
+                    ? "linear-gradient(135deg, rgb(var(--sl-gold-rgb) / 0.08), rgb(var(--sl-gold-rgb) / 0.02))"
+                    : "rgb(var(--sl-tint) / 0.02)",
+                  boxShadow: isOpen ? "0 0 40px rgb(var(--sl-gold-rgb) / 0.05)" : "none",
                 }}
               >
                 <button
                   onClick={() => setExpanded(isOpen ? null : service.id)}
-                  className="w-full flex items-center justify-between p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-2xl"
+                  className="w-full flex items-center justify-between p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--sl-gold)] rounded-2xl"
                   aria-expanded={isOpen}
                   aria-controls={`service-${service.id}`}
                 >
@@ -107,13 +107,13 @@ export function ServicesSection() {
                     <div 
                       className={`p-3 rounded-xl transition-all duration-300 ${
                         isOpen 
-                          ? "bg-[#D4AF37] text-[#0B0B0B]" 
-                          : "bg-[rgba(212,175,55,0.1)] text-[#D4AF37]"
+                          ? "bg-[color:var(--sl-gold)] text-[color:var(--sl-on-gold)]" 
+                          : "bg-[rgb(var(--sl-gold-rgb)/0.1)] text-[color:var(--sl-gold-text)]"
                       }`}
                     >
                       <Icon className="h-6 w-6" />
                     </div>
-                    <h3 className="text-lg md:text-xl font-semibold" style={{ color: "#FFFFFF" }}>
+                    <h3 className="text-lg md:text-xl font-semibold" style={{ color: "var(--sl-fg)" }}>
                       {service.title}
                     </h3>
                   </div>
@@ -121,7 +121,7 @@ export function ServicesSection() {
                     className={`h-5 w-5 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
-                    style={{ color: isOpen ? "#D4AF37" : "#E2E8F0" }}
+                    style={{ color: isOpen ? "var(--sl-gold-text)" : "var(--sl-muted)" }}
                   />
                 </button>
 
@@ -136,17 +136,17 @@ export function ServicesSection() {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6">
-                        <div className="pt-2 border-t" style={{ borderColor: "rgba(212, 175, 55, 0.1)" }}>
+                        <div className="pt-2 border-t" style={{ borderColor: "rgb(var(--sl-gold-rgb) / 0.1)" }}>
                           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                             {service.items.map((item) => (
                               <li
                                 key={item}
                                 className="flex items-start gap-2 text-sm"
-                                style={{ color: "#E2E8F0" }}
+                                style={{ color: "var(--sl-muted)" }}
                               >
                                 <span 
                                   className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0"
-                                  style={{ backgroundColor: "#D4AF37" }}
+                                  style={{ backgroundColor: "var(--sl-gold)" }}
                                 />
                                 <span>{item}</span>
                               </li>

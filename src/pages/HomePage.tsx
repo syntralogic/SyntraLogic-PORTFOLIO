@@ -44,7 +44,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <AboutSection />
-        <Suspense fallback={<div className="min-h-screen" style={{ backgroundColor: "#0B0B0B" }} />}>
+        <Suspense fallback={<div className="min-h-screen" style={{ backgroundColor: "var(--sl-bg)" }} />}>
           <PortfolioSection />
           <ServicesSection />
           <WhyChooseUsSection />
