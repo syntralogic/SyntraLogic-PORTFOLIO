@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Quote, Star } from "lucide-react";
-import { testimonials, SHOW_DEMO_NOTICE } from "@/lib/data";
+import { testimonials } from "@/lib/data";
 
 export function TestimonialsSection() {
   return (
@@ -46,7 +46,7 @@ export function TestimonialsSection() {
             style={{ color: "#FFFFFF" }}
           >
             What Our Clients Say
-          )}
+          </motion.h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
