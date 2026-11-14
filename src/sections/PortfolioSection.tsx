@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -249,6 +249,37 @@ export function PortfolioSection() {
                       Live Demo
                     </a>
                   </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="flex-1 transition-all duration-300"
+                    style={{
+                      borderColor: "rgba(212, 175, 55, 0.15)",
+                      color: "#E2E8F0",
+                      backgroundColor: "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#D4AF37";
+                      e.currentTarget.style.color = "#D4AF37";
+                      e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.15)";
+                      e.currentTarget.style.color = "#E2E8F0";
+                      e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                    asChild
+                  >
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View source code of ${project.name}`}
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      GitHub
+                    </a>
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -431,7 +462,21 @@ export function PortfolioSection() {
                       Live Demo
                     </a>
                   </Button>
-
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="flex-1"
+                    style={{
+                      borderColor: "rgba(212, 175, 55, 0.3)",
+                      color: "#E2E8F0",
+                      backgroundColor: "transparent",
+                    }}
+                  >
+                    <a href={selected.repoUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" />
+                      GitHub
+                    </a>
+                  </Button>
                 </div>
               </div>
             </>
